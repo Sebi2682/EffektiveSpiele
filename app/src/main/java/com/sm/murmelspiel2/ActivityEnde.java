@@ -2,6 +2,7 @@ package com.sm.murmelspiel2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -22,6 +23,8 @@ public class ActivityEnde extends AppCompatActivity {
         setContentView(R.layout.activity_ende);
         textSpieler1Gewinnt.setVisibility(View.GONE);
         textSpieler2Gewinnt.setVisibility(View.GONE);
+        WerGewinnt();
+        openMainActivity();
 
 
     }
@@ -32,6 +35,12 @@ public class ActivityEnde extends AppCompatActivity {
         }else{
             textSpieler1Gewinnt.setVisibility(View.VISIBLE);
         }
+
+    }
+
+    public void openMainActivity() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
 
     }
 }
