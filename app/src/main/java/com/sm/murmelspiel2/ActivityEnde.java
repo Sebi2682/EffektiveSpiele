@@ -19,8 +19,6 @@ public class ActivityEnde extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ende);
-        textSpieler1Gewinnt.setVisibility(View.GONE);
-        textSpieler2Gewinnt.setVisibility(View.GONE);
         WerGewinnt();
         openMainActivity();
 

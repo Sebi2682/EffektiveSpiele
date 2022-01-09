@@ -58,23 +58,23 @@ public class ActivityRaten2 extends AppCompatActivity {
 
     public void GewinnerGerade() throws InterruptedException {
         if(points2 % 2 == 0){
-            Spieler2gewinnt();
-        }else{
             Spieler1gewinnt();
+        }else{
+            Spieler2gewinnt();
         }
     }
     public void GewinnerUngerade() throws InterruptedException {
         if(points2 % 2 == 0){
-            Spieler1gewinnt();
-        }else{
             Spieler2gewinnt();
+        }else{
+            Spieler1gewinnt();
         }
     }
     public void Spieler1gewinnt() throws InterruptedException {
         buttonGerade.setVisibility(View.GONE);
         buttonUngerade.setVisibility(View.GONE);
 
-        application.anzahl1= anzahl1+points1*2;
+        application.anzahl1= anzahl1+points2;
         application.points2 = 0;
 
         Toast.makeText(ActivityRaten2.this, "Spieler 1 gewinnt!", Toast.LENGTH_LONG).show();
