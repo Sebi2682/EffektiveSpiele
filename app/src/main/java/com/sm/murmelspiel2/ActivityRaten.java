@@ -67,6 +67,10 @@ public class ActivityRaten extends AppCompatActivity {
         application.anzahl2= anzahl2-points1;
         application.points1 = 0;
 
+        if(points2 <= 0){
+            openActivityEnde();
+        }
+
         Toast.makeText(ActivityRaten.this,"Spieler 1 gewinnt!", Toast.LENGTH_LONG).show();
 
 
@@ -77,12 +81,21 @@ public class ActivityRaten extends AppCompatActivity {
         application.anzahl2= anzahl2+points1;
         application.points1 = 0;
 
+        if(points1 <= 0){
+            openActivityEnde();
+        }
+
         Toast.makeText(ActivityRaten.this, "Spieler 2 gewinnt!", Toast.LENGTH_LONG).show();
 
     }
     public void openActivitySpieler2(){
 
         Intent intent = new Intent(this, ActivitySpieler2.class);
+        startActivity(intent);
+    }
+    public void openActivityEnde(){
+
+        Intent intent = new Intent( this, ActivityEnde.class);
         startActivity(intent);
     }
 }
