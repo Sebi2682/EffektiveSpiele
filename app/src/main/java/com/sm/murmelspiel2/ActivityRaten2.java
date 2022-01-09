@@ -32,14 +32,14 @@ public class ActivityRaten2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 GewinnerGerade();
-                openActivitySpieler1();
+                openNextActivity();
             }
         });
         buttonUngerade.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 GewinnerUngerade();
-                openActivitySpieler1();
+                openNextActivity();
             }
         });
 
@@ -67,10 +67,6 @@ public class ActivityRaten2 extends AppCompatActivity {
         application.anzahl1= anzahl1+points1*2;
         application.points2 = 0;
 
-        if(anzahl2 <= 0){
-            openActivityEnde();
-        }
-
         Toast.makeText(ActivityRaten2.this, "Spieler 1 gewinnt!", Toast.LENGTH_LONG).show();
 
 
@@ -82,13 +78,18 @@ public class ActivityRaten2 extends AppCompatActivity {
         application.anzahl1= anzahl1-points2;
         application.points2 = 0;
 
-        if(anzahl1 <= 0){
-            openActivityEnde();
-        }
-
         Toast.makeText(ActivityRaten2.this, "Spieler 2 gewinnt!", Toast.LENGTH_LONG).show();
 
     }
+
+    public void openNextActivity(){
+        if(anzahl2 <= 0|| anzahl1 <= 0){
+            openActivityEnde();
+        }else{
+            openActivitySpieler1();
+        }
+    }
+
     public void openActivitySpieler1(){
         Intent intent = new Intent(this, ActivitySpieler1.class);
         startActivity(intent);
