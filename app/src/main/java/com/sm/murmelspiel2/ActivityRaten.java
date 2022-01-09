@@ -67,7 +67,7 @@ public class ActivityRaten extends AppCompatActivity {
         application.anzahl2= anzahl2-points1;
         application.points1 = 0;
 
-        if(points2 <= 0){
+        if(anzahl2 <= 0){
             openActivityEnde();
         }
 
@@ -81,7 +81,7 @@ public class ActivityRaten extends AppCompatActivity {
         application.anzahl2= anzahl2+points1;
         application.points1 = 0;
 
-        if(points1 <= 0){
+        if(anzahl1 <= 0){
             openActivityEnde();
         }
 
