@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Murmelspiel2</string>
+    <string name="textMurmelspiel">Murmelspiel</string>
+    <string name="buttonSpielen">Spielen</string>
+    <string name="buttonRegeln">Regeln</string>
+    <string name="textRegeln">Spielregeln:</string>
+    <string name="titleRegeln">Spielregeln:</string>
+    <string name="buttonZurueck">zurück</string>
+    <string name="textRegel">sdulfghasuidfhgalguh</string>
+    <string name="regelnbild">regelnBild</string>
+    <string name="spieler_1">Spieler 1</string>
+    <string name="murmel">TODO</string>
+    <string name="clicked">+1</string>
+    <string name="tvPoints">00000</string>
+    <string name="murmelSetzen">TODO</string>
+    <string name="buttonGerade">Gerade</string>
+    <string name="buttonUngerade">Ungerade</string>
+</resources>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.sm.murmelspiel2">
+
+    <application
+        android:name=".MyApplication"
+        android:allowBackup="true"
+        android:fullBackupOnly="true"
+        android:icon="@mipmap/murmelicon"
+        android:label="Murmelspiel"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.NoActionBar">
+        <activity
+            android:name=".ActivitySpieler2"
+            android:exported="true" />
+        <activity
+            android:name=".ActivityRaten"
+            android:exported="true" />
+        <activity
+            android:name=".ActivitySpieler1"
+            android:exported="true" />
+        <activity
+            android:name=".ActivityRegeln"
+            android:exported="true" />
+        <activity
+            android:name=".ActivityRaten2"
+            android:exported="true" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
