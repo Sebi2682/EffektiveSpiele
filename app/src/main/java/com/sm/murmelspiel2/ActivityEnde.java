@@ -12,8 +12,6 @@ public class ActivityEnde extends AppCompatActivity {
     private TextView textSpieler1Gewinnt;
     private TextView textSpieler2Gewinnt;
     MyApplication application = (MyApplication) getApplication();
-    int points1 = application.points1;
-    int points2 = application.points2;
     int anzahl1 = application.anzahl1;
     int anzahl2 = application.anzahl2;
 
@@ -30,11 +28,13 @@ public class ActivityEnde extends AppCompatActivity {
     }
 
     public void WerGewinnt(){
-        if(points1 <= 0){
+        if(anzahl1 <= 0){
             textSpieler2Gewinnt.setVisibility(View.VISIBLE);
         }else{
             textSpieler1Gewinnt.setVisibility(View.VISIBLE);
         }
+        anzahl1 = 10;
+        anzahl2 = 10;
 
     }
 
