@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.util.concurrent.TimeUnit;
+
+
 public class ActivityRaten extends AppCompatActivity {
 
     private Button buttonGerade;
@@ -68,6 +71,7 @@ public class ActivityRaten extends AppCompatActivity {
         application.points1 = 0;
 
         Toast.makeText(ActivityRaten.this,"Spieler 1 gewinnt!", Toast.LENGTH_LONG).show();
+        TimeUnit.SECONDS.toMillis(1);
 
 
     }
@@ -78,11 +82,11 @@ public class ActivityRaten extends AppCompatActivity {
         application.points1 = 0;
 
         Toast.makeText(ActivityRaten.this, "Spieler 2 gewinnt!", Toast.LENGTH_LONG).show();
-
+        TimeUnit.SECONDS.toMillis(1);
     }
 
     public void openNextActivity(){
-        if(anzahl2 <= 0|| anzahl1 <= 0){
+        if(anzahl2 <= 0 || anzahl1 <= 0){
             openActivityEnde();
         }else{
             openActivitySpieler2();
@@ -99,6 +103,7 @@ public class ActivityRaten extends AppCompatActivity {
         Intent intent = new Intent( this, ActivityEnde.class);
         startActivity(intent);
     }
+
 }
 
 
