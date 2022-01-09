@@ -33,14 +33,22 @@ public class ActivityRaten extends AppCompatActivity {
         buttonGerade.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                GewinnerGerade();
+                try {
+                    GewinnerGerade();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 openNextActivity();
             }
         });
         buttonUngerade.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                GewinnerUngerade();
+                try {
+                    GewinnerUngerade();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 openNextActivity();
             }
         });
@@ -48,21 +56,21 @@ public class ActivityRaten extends AppCompatActivity {
     }
     public void onBackPressed(){ }
 
-    public void GewinnerGerade(){
+    public void GewinnerGerade() throws InterruptedException {
         if(points1 % 2 == 0){
             Spieler2gewinnt();
         }else{
             Spieler1gewinnt();
         }
     }
-    public void GewinnerUngerade(){
+    public void GewinnerUngerade() throws InterruptedException {
         if(points1 % 2 == 0){
             Spieler1gewinnt();
         }else{
             Spieler2gewinnt();
         }
     }
-    public void Spieler1gewinnt(){
+    public void Spieler1gewinnt() throws InterruptedException {
         buttonGerade.setVisibility(View.GONE);
         buttonUngerade.setVisibility(View.GONE);
 
@@ -71,18 +79,18 @@ public class ActivityRaten extends AppCompatActivity {
         application.points1 = 0;
 
         Toast.makeText(ActivityRaten.this,"Spieler 1 gewinnt!", Toast.LENGTH_LONG).show();
-        TimeUnit.SECONDS.toMillis(1);
+        TimeUnit.SECONDS.sleep(1);
 
 
     }
-    public void Spieler2gewinnt(){
+    public void Spieler2gewinnt() throws InterruptedException {
         buttonGerade.setVisibility(View.GONE);
         buttonUngerade.setVisibility(View.GONE);
         application.anzahl2= anzahl2+points1;
         application.points1 = 0;
 
         Toast.makeText(ActivityRaten.this, "Spieler 2 gewinnt!", Toast.LENGTH_LONG).show();
-        TimeUnit.SECONDS.toMillis(1);
+        TimeUnit.SECONDS.sleep(1);
     }
 
     public void openNextActivity(){
