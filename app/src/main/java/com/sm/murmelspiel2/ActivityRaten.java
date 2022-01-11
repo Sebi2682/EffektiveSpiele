@@ -52,7 +52,7 @@ public class ActivityRaten extends AppCompatActivity {
                 openNextActivity();
             }
         });
-
+////
     }
     public void onBackPressed(){ }
 
