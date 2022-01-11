@@ -14,8 +14,6 @@ public class ActivityEnde extends AppCompatActivity {
     private TextView textSpieler2Gewinnt;
     private Button buttonOK;
     MyApplication application = (MyApplication) getApplication();
-    int anzahl1 = application.anzahl1;
-    int anzahl2 = application.anzahl2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,16 +33,16 @@ public class ActivityEnde extends AppCompatActivity {
     }
 
     public void WerGewinnt() {
-        if (anzahl1 <= 0) {
+        if (application.anzahl1 <= 0) {
             textSpieler2Gewinnt.setVisibility(View.VISIBLE);
-            anzahl1 = 10;
-            anzahl2 = 10;
+            application.anzahl1 = 10;
+            application.anzahl2 = 10;
 
         } else {
-            if (anzahl2 <= 0) {
+            if (application.anzahl2 <= 0) {
                 textSpieler1Gewinnt.setVisibility(View.VISIBLE);
-                anzahl1 = 10;
-                anzahl2 = 10;
+                application.anzahl1 = 10;
+                application.anzahl2 = 10;
 
             }
 
