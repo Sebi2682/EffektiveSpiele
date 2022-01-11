@@ -95,7 +95,7 @@ public class ActivityRaten2 extends AppCompatActivity {
     public void openNextActivity(){
         if(application.anzahl2 <= 0 || application.anzahl1 <= 0){
             openActivityEnde();
-        }else{
+        } if(application.anzahl2 > 0 || application.anzahl1 > 0){
             openActivitySpieler1();
         }
     }
