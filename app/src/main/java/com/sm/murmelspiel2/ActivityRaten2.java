@@ -57,14 +57,14 @@ public class ActivityRaten2 extends AppCompatActivity {
     public void onBackPressed(){ }
 
     public void GewinnerGerade() throws InterruptedException {
-        if(points2 % 2 == 0){
+        if((points2 % 2) == 0){
             Spieler1gewinnt();
         }else{
             Spieler2gewinnt();
         }
     }
     public void GewinnerUngerade() throws InterruptedException {
-        if(points2 % 2 == 0){
+        if((points2 % 2) == 0){
             Spieler2gewinnt();
         }else{
             Spieler1gewinnt();
