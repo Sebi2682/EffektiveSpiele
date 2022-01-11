@@ -5,12 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class ActivityEnde extends AppCompatActivity {
 
     private TextView textSpieler1Gewinnt;
     private TextView textSpieler2Gewinnt;
+    private Button buttonOK;
     MyApplication application = (MyApplication) getApplication();
     int anzahl1 = application.anzahl1;
     int anzahl2 = application.anzahl2;
@@ -19,9 +21,16 @@ public class ActivityEnde extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ende);
-        WerGewinnt();
-        openMainActivity();
+        buttonOK = findViewById(R.id.buttonOK);
 
+        WerGewinnt();
+
+        buttonOK.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openMainActivity();
+            }
+        });
 
     }
 
