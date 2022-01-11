@@ -35,4 +35,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/animation"
+        app:lottie_loop="true"
+        app:lottie_fileName="67230-trophy-winner.json"
+        app:lottie_autoPlay="true"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>
