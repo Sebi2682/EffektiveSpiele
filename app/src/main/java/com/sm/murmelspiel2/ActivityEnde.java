@@ -25,15 +25,21 @@ public class ActivityEnde extends AppCompatActivity {
 
     }
 
-    public void WerGewinnt(){
-        if(anzahl1 <= 0){
+    public void WerGewinnt() {
+        if (anzahl1 <= 0) {
             textSpieler2Gewinnt.setVisibility(View.VISIBLE);
-        }else{
-            textSpieler1Gewinnt.setVisibility(View.VISIBLE);
-        }
-        anzahl1 = 10;
-        anzahl2 = 10;
+            anzahl1 = 10;
+            anzahl2 = 10;
 
+        } else {
+            if (anzahl2 <= 0) {
+                textSpieler1Gewinnt.setVisibility(View.VISIBLE);
+                anzahl1 = 10;
+                anzahl2 = 10;
+
+            }
+
+        }
     }
 
     public void openMainActivity() {
