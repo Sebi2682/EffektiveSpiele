@@ -39,13 +39,13 @@ public class ActivityEnde extends AppCompatActivity {
             application.anzahl2 = 10;
 
         }
-            if (application.anzahl2 <= 0) {
+        if (application.anzahl2 <= 0) {
                 textSpieler1Gewinnt.setVisibility(View.VISIBLE);
                 application.anzahl1 = 10;
                 application.anzahl2 = 10;
 
-            }
         }
+    }
 
     public void openMainActivity() {
         Intent intent = new Intent(this, MainActivity.class);
