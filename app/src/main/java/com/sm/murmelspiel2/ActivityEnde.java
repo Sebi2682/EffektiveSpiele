@@ -32,6 +32,7 @@ public class ActivityEnde extends AppCompatActivity {
         });
 
     }
+    public void onBackPressed(){ }
 
     public void WerGewinnt() {
         if(MyApplication.anzahl1 <= 0) {
