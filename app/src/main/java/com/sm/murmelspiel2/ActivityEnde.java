@@ -13,7 +13,6 @@ public class ActivityEnde extends AppCompatActivity {
     private TextView textSpieler1Gewinnt;
     private TextView textSpieler2Gewinnt;
     private Button buttonOK;
-    MyApplication application = (MyApplication) getApplication();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,16 +32,16 @@ public class ActivityEnde extends AppCompatActivity {
     }
 
     public void WerGewinnt() {
-        if (application.anzahl1 <= 0) {
+        if (MyApplication.anzahl1 <= 0) {
             textSpieler2Gewinnt.setVisibility(View.VISIBLE);
-            application.anzahl1 = 10;
-            application.anzahl2 = 10;
+            MyApplication.anzahl1 = 10;
+            MyApplication.anzahl2 = 10;
 
         }
-        if (application.anzahl2 <= 0) {
+        if (MyApplication.anzahl2 <= 0) {
                 textSpieler1Gewinnt.setVisibility(View.VISIBLE);
-                application.anzahl1 = 10;
-                application.anzahl2 = 10;
+                MyApplication.anzahl1 = 10;
+                MyApplication.anzahl2 = 10;
 
         }
     }
