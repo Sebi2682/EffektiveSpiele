@@ -54,12 +54,13 @@ public class ActivitySpieler1 extends AppCompatActivity implements View.OnClickL
 
     private void murmelClick() {
 
-        if(MyApplication.anzahl1 >=0)
+        if(MyApplication.anzahl1 >0)
             {
-            tvPoints.setText(Integer.toString(MyApplication.points1));
-            textAnzahl.setText(Integer.toString(MyApplication.anzahl1));
                 MyApplication.points1++;
                 MyApplication.anzahl1--;
+            tvPoints.setText(Integer.toString(MyApplication.points1));
+            textAnzahl.setText(Integer.toString(MyApplication.anzahl1));
+
         }
     }
 }
