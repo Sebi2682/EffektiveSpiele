@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+    public void onBackPressed(){ }
 
     public void openActivityRegeln() {
         Intent intent = new Intent(this, ActivityRegeln.class);

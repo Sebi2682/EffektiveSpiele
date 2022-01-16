@@ -37,8 +37,8 @@
 
     <ImageView
         android:id="@+id/imageMurmelSetzen1"
-        android:layout_width="212dp"
-        android:layout_height="207dp"
+        android:layout_width="230dp"
+        android:layout_height="200dp"
         android:background="@drawable/murmel"
         android:onClick="onClick"
         app:layout_constraintBottom_toBottomOf="parent"
