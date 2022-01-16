@@ -19,6 +19,8 @@ public class ActivityEnde extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ende);
         buttonOK = findViewById(R.id.buttonOK);
+        textSpieler1Gewinnt = findViewById(R.id.textSpieler1Gewinnt);
+        textSpieler2Gewinnt = findViewById(R.id.textSpieler2Gewinnt);
 
         WerGewinnt();
 
@@ -32,18 +34,13 @@ public class ActivityEnde extends AppCompatActivity {
     }
 
     public void WerGewinnt() {
-        if (MyApplication.anzahl1 <= 0) {
+        if(MyApplication.anzahl1 <= 0) {
             textSpieler2Gewinnt.setVisibility(View.VISIBLE);
-            MyApplication.anzahl1 = 10;
-            MyApplication.anzahl2 = 10;
-
-        }
-        if (MyApplication.anzahl2 <= 0) {
+        }else{
                 textSpieler1Gewinnt.setVisibility(View.VISIBLE);
-                MyApplication.anzahl1 = 10;
-                MyApplication.anzahl2 = 10;
-
         }
+        MyApplication.anzahl1 = 10;
+        MyApplication.anzahl2 = 10;
     }
 
     public void openMainActivity() {

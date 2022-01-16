@@ -98,13 +98,13 @@ public class ActivityRaten extends AppCompatActivity {
 
     public void openActivitySpieler2(){
 
-        Intent intent = new Intent(this, ActivitySpieler2.class);
-        startActivity(intent);
+        Intent intent1 = new Intent(this, ActivitySpieler2.class);
+        startActivity(intent1);
     }
     public void openActivityEnde(){
 
-        Intent intent = new Intent( this, ActivityEnde.class);
-        startActivity(intent);
+        Intent intent2 = new Intent( this, ActivityEnde.class);
+        startActivity(intent2);
     }
 
 }
