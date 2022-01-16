@@ -15,11 +15,6 @@ public class ActivityRaten2 extends AppCompatActivity {
 
     private Button buttonGerade;
     private Button buttonUngerade;
-    MyApplication application = (MyApplication) getApplication();
-    int points1 = application.points1;
-    int points2 = application.points2;
-    int anzahl1 = application.anzahl1;
-    int anzahl2 = application.anzahl2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,14 +52,14 @@ public class ActivityRaten2 extends AppCompatActivity {
     public void onBackPressed(){ }
 
     public void GewinnerGerade() throws InterruptedException {
-        if((points2 % 2) == 0){
+        if((MyApplication.points2 % 2) == 0){
             Spieler1gewinnt();
         }else{
             Spieler2gewinnt();
         }
     }
     public void GewinnerUngerade() throws InterruptedException {
-        if((points2 % 2) == 0){
+        if((MyApplication.points2 % 2) == 0){
             Spieler2gewinnt();
         }else{
             Spieler1gewinnt();
@@ -74,8 +69,8 @@ public class ActivityRaten2 extends AppCompatActivity {
         buttonGerade.setVisibility(View.GONE);
         buttonUngerade.setVisibility(View.GONE);
 
-        application.anzahl1= anzahl1+points2;
-        application.points2 = 0;
+        MyApplication.anzahl1= MyApplication.anzahl1+MyApplication.points2;
+        MyApplication.points2 = 0;
 
         Toast.makeText(ActivityRaten2.this, "Spieler 1 gewinnt!", Toast.LENGTH_LONG).show();
         TimeUnit.SECONDS.sleep(1);
@@ -84,18 +79,18 @@ public class ActivityRaten2 extends AppCompatActivity {
     public void Spieler2gewinnt() throws InterruptedException {
         buttonGerade.setVisibility(View.GONE);
         buttonUngerade.setVisibility(View.GONE);
-        application.anzahl2= anzahl2+points2*2;
-        application.anzahl1= anzahl1-points2;
-        application.points2 = 0;
+        MyApplication.anzahl2= MyApplication.anzahl2+MyApplication.points2*2;
+        MyApplication.anzahl1= MyApplication.anzahl1-MyApplication.points2;
+        MyApplication.points2 = 0;
 
         Toast.makeText(ActivityRaten2.this, "Spieler 2 gewinnt!", Toast.LENGTH_LONG).show();
         TimeUnit.SECONDS.sleep(1);
     }
 
     public void openNextActivity(){
-        if(application.anzahl2 <= 0 || application.anzahl1 <= 0){
+        if(MyApplication.anzahl2 <= 0 || MyApplication.anzahl1 <= 0){
             openActivityEnde();
-        } if(application.anzahl2 > 0 || application.anzahl1 > 0){
+        } if(MyApplication.anzahl2 > 0 || MyApplication.anzahl1 > 0){
             openActivitySpieler1();
         }
     }

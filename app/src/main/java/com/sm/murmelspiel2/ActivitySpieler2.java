@@ -14,9 +14,6 @@ public class ActivitySpieler2 extends AppCompatActivity implements View.OnClickL
 
     private TextView tvPoints;
     private TextView textAnzahl;
-    MyApplication application = (MyApplication) this.getApplication();
-    int points2 = application.points2;
-    int anzahl2 = application.anzahl2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,11 +24,11 @@ public class ActivitySpieler2 extends AppCompatActivity implements View.OnClickL
         textAnzahl = findViewById(R.id.textAnzahl);
         Button buttonOk = findViewById(R.id.buttonOk);
         buttonOk.setOnClickListener(v -> openActivityRaten2());
-        textAnzahl.setText(Integer.toString(anzahl2));
+        textAnzahl.setText(Integer.toString(MyApplication.anzahl2));
     }
 
     public void openActivityRaten2() {
-        if(points2 == 0){
+        if(MyApplication.points2 == 0){
         }else {
             Intent intent = new Intent(this, ActivityRaten2.class);
             startActivity(intent);
@@ -55,13 +52,11 @@ public class ActivitySpieler2 extends AppCompatActivity implements View.OnClickL
     }
 
     private void murmelClick() {
-        points2++;
-        anzahl2--;
-        if (anzahl2 > 0) {
-            tvPoints.setText(Integer.toString(points2));
-            textAnzahl.setText(Integer.toString(anzahl2));
+        MyApplication.points2++;
+        MyApplication.anzahl2--;
+        if (MyApplication.anzahl2 >= 0) {
+            tvPoints.setText(Integer.toString(MyApplication.points2));
+            textAnzahl.setText(Integer.toString(MyApplication.anzahl2));
         }
-        application.points2= points2;
-        application.anzahl2 = anzahl2;
     }
 }
