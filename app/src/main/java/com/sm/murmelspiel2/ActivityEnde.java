@@ -10,42 +10,39 @@ import android.widget.TextView;
 
 public class ActivityEnde extends AppCompatActivity {
 
-    private final TextView textSpieler1Gewinnt;
-    private final TextView textSpieler2Gewinnt;
-    MyApplication application;
-
-    {
-        application = (MyApplication) getApplication();
-    }
-
-    public ActivityEnde(TextView textSpieler1Gewinnt, TextView textSpieler2Gewinnt) {
-        this.textSpieler1Gewinnt = textSpieler1Gewinnt;
-        this.textSpieler2Gewinnt = textSpieler2Gewinnt;
-    }
+    private TextView textSpieler1Gewinnt;
+    private TextView textSpieler2Gewinnt;
+    private Button buttonOK;
+    MyApplication application = (MyApplication) getApplication();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ende);
-        Button buttonOK = findViewById(R.id.buttonOK);
+        buttonOK = findViewById(R.id.buttonOK);
 
         WerGewinnt();
 
-        buttonOK.setOnClickListener(v -> openMainActivity());
+        buttonOK.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openMainActivity();
+            }
+        });
 
     }
 
     public void WerGewinnt() {
-        if (MyApplication.anzahl1 <= 0) {
+        if (application.anzahl1 <= 0) {
             textSpieler2Gewinnt.setVisibility(View.VISIBLE);
-            MyApplication.anzahl1 = 10;
-            MyApplication.anzahl2 = 10;
+            application.anzahl1 = 10;
+            application.anzahl2 = 10;
 
         }
-        if (MyApplication.anzahl2 <= 0) {
+        if (application.anzahl2 <= 0) {
                 textSpieler1Gewinnt.setVisibility(View.VISIBLE);
-                MyApplication.anzahl1 = 10;
-                MyApplication.anzahl2 = 10;
+                application.anzahl1 = 10;
+                application.anzahl2 = 10;
 
         }
     }

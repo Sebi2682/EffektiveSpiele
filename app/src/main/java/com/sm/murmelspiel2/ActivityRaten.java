@@ -88,11 +88,11 @@ public class ActivityRaten extends AppCompatActivity {
         TimeUnit.SECONDS.sleep(1);
     }
 
-    public void openNextActivity(){
-        if(MyApplication.anzahl2 <= 0 || MyApplication.anzahl1 <= 0){
-            openActivityEnde();
-        } if(MyApplication.anzahl2 > 0 || MyApplication.anzahl1 > 0){
+    public void openNextActivity() {
+         if (MyApplication.anzahl2 > 0 || MyApplication.anzahl1 > 0) {
             openActivitySpieler2();
+        } else {
+            openActivityEnde();
         }
     }
 
