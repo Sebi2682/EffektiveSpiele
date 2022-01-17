@@ -41,14 +41,14 @@ public class ActivityBot extends AppCompatActivity {
             }
         });
 
-        public void GewinnerGerade() throws InterruptedException {
+        public void GewinnerGerade(){
             if((MyApplication.points2 % 2) == 0){
                 Spieler1gewinnt();
             }else{
                 BotGewinnt();
             }
         }
-        public void GewinnerUngerade() throws InterruptedException {
+        public void GewinnerUngerade(){
             if((MyApplication.points2 % 2) == 0){
 
             }else{
@@ -67,6 +67,7 @@ public class ActivityBot extends AppCompatActivity {
 
         }
         public void BotGewinnt() throws InterruptedException {
+
             buttonGerade.setVisibility(View.GONE);
             buttonUngerade.setVisibility(View.GONE);
             MyApplication.anzahl2= MyApplication.anzahl2+MyApplication.points2*2;
@@ -77,16 +78,10 @@ public class ActivityBot extends AppCompatActivity {
             TimeUnit.SECONDS.sleep(1);
         }
 
-
-
-
-
     }
 
     public void openActivityBotSetzen() {
-
         Intent intent = new Intent(this, ActivityBotSetzen.class);
         startActivity(intent);
-
     }
 }
