@@ -14,6 +14,7 @@ import android.widget.VideoView;
 public class MainActivity extends AppCompatActivity {
     private Button buttonRegeln;
     private Button buttonSpielen;
+    private Button buttonBot;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
         buttonRegeln = findViewById(R.id.buttonRegeln);
         buttonSpielen = findViewById(R.id.buttonSpielen);
+        buttonBot = findViewById(R.id.buttonBot);
 
         buttonRegeln.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,7 +42,10 @@ public class MainActivity extends AppCompatActivity {
                 openActivitySpielen();
             }
         });
-
+        buttonBot.setVisibility(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {openActivityBot(); }
+    }
     }
     public void onBackPressed(){ }
 
@@ -48,8 +53,12 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ActivityRegeln.class);
         startActivity(intent);
     }
-    public void openActivitySpielen(){
+    public void openActivitySpielen() {
         Intent intent = new Intent(this, ActivitySpieler1.class);
         startActivity(intent);
     }
-}
+    public void openActivityBot()  {
+        Intent intent2 = new Intent(this, ActivityBot.class);
+        startActivity(intent2);
+        }
+    }
