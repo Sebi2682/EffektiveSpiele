@@ -24,12 +24,13 @@ public class ActivityBot extends AppCompatActivity {
 
         buttonGerade = findViewById(R.id.buttonGerade);
         buttonUngerade = findViewById(R.id.buttonUngerade);
-        int x = Min + (int)(Math.random() * ((Max - Min) + 1));
+        int x = Min + (int) (Math.random() * ((Max - Min) + 1));
         MyApplication.points2 = x;
 
         buttonGerade.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                GewinnerGerade();
                 openActivityBotSetzen();
             }
         });
@@ -37,51 +38,60 @@ public class ActivityBot extends AppCompatActivity {
         buttonUngerade.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                GewinnerUngerade();
                 openActivityBotSetzen();
             }
         });
-
-        public void GewinnerGerade(){
-            if((MyApplication.points2 % 2) == 0){
-                Spieler1gewinnt();
-            }else{
-                BotGewinnt();
-            }
-        }
-        public void GewinnerUngerade(){
-            if((MyApplication.points2 % 2) == 0){
-
-            }else{
-
-            }
-        }
-        public void Spieler1gewinnt() throws InterruptedException {
-            buttonGerade.setVisibility(View.GONE);
-            buttonUngerade.setVisibility(View.GONE);
-
-            MyApplication.anzahl1= MyApplication.anzahl1+MyApplication.points2;
-            MyApplication.points2 = 0;
-
-            Toast.makeText(ActivityRaten2.this, "Spieler gewinnt!", Toast.LENGTH_LONG).show();
-            TimeUnit.SECONDS.sleep(1);
-
-        }
-        public void BotGewinnt() throws InterruptedException {
-
-            buttonGerade.setVisibility(View.GONE);
-            buttonUngerade.setVisibility(View.GONE);
-            MyApplication.anzahl2= MyApplication.anzahl2+MyApplication.points2*2;
-            MyApplication.anzahl1= MyApplication.anzahl1-MyApplication.points2;
-            MyApplication.points2 = 0;
-
-            Toast.makeText(ActivityRaten2.this, " Spieler verliert", Toast.LENGTH_LONG).show();
-            TimeUnit.SECONDS.sleep(1);
-        }
-
     }
 
-    public void openActivityBotSetzen() {
+    private void openActivityBotSetzen() {
         Intent intent = new Intent(this, ActivityBotSetzen.class);
         startActivity(intent);
+    }
+
+    public void GewinnerGerade() {
+        if ((MyApplication.points2 % 2) == 0) {
+            Spieler1gewinnt();
+        } else {
+            BotGewinnt();
+        }
+    }
+
+    private void BotGewinnt() {
+        buttonGerade.setVisibility(View.GONE);
+        buttonUngerade.setVisibility(View.GONE);
+        MyApplication.anzahl2 = MyApplication.anzahl2 + MyApplication.points2 * 2;
+        MyApplication.anzahl1 = MyApplication.anzahl1 - MyApplication.points2;
+        MyApplication.points2 = 0;
+
+        Toast.makeText(ActivityBot.this, " Du hast verloren", Toast.LENGTH_LONG).show();
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    private void Spieler1gewinnt() {
+        buttonGerade.setVisibility(View.GONE);
+        buttonUngerade.setVisibility(View.GONE);
+
+        MyApplication.anzahl1 = MyApplication.anzahl1 + MyApplication.points2;
+        MyApplication.points2 = 0;
+
+        Toast.makeText(ActivityBot.this, "Du hast gewonnen!", Toast.LENGTH_LONG).show();
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void GewinnerUngerade() {
+        if ((MyApplication.points2 % 2) == 0) {
+
+        } else {
+        }
     }
 }
