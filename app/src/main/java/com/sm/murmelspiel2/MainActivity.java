@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     private Button buttonRegeln;
     private Button buttonSpielen;
     private Button buttonBot;
+    private Button buttonLokal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         buttonRegeln = findViewById(R.id.buttonRegeln);
         buttonSpielen = findViewById(R.id.buttonSpielen);
         buttonBot = findViewById(R.id.buttonBot);
+        buttonLokal = findViewById(R.id.buttonLokal);
 
         buttonRegeln.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,26 +41,45 @@ public class MainActivity extends AppCompatActivity {
         buttonSpielen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openActivitySpielen();
+                welcherModus();
             }
         });
-        buttonBot.setVisibility(new View.OnClickListener() {
+        buttonBot.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {openActivityBot(); }
-    }
+            public void onClick(View v) {
+                openActivityBot();
+            }
+        });
+        buttonLokal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                openActivitySpielen();
+            }
+                                       }
+        );
+
     }
     public void onBackPressed(){ }
+
+    public void welcherModus(){
+        buttonSpielen.setVisibility(View.INVISIBLE);
+        buttonRegeln.setVisibility(View.INVISIBLE);
+        buttonLokal.setVisibility(View.VISIBLE);
+        buttonBot.setVisibility(View.VISIBLE);
+    }
 
     public void openActivityRegeln() {
         Intent intent = new Intent(this, ActivityRegeln.class);
         startActivity(intent);
     }
+
     public void openActivitySpielen() {
         Intent intent = new Intent(this, ActivitySpieler1.class);
         startActivity(intent);
     }
+
     public void openActivityBot()  {
         Intent intent2 = new Intent(this, ActivityBot.class);
         startActivity(intent2);
-        }
     }
+}
