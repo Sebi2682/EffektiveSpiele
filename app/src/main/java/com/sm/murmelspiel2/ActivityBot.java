@@ -11,6 +11,8 @@ public class ActivityBot extends AppCompatActivity {
 
     private Button buttonGerade;
     private Button buttonUngerade;
+    private int Min = 1;
+    private int Max = MyApplication.anzahl2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,8 +21,8 @@ public class ActivityBot extends AppCompatActivity {
 
         buttonGerade = findViewById(R.id.buttonGerade);
         buttonUngerade = findViewById(R.id.buttonUngerade);
-
-
+        int x = Min + (int)(Math.random() * ((Max - Min) + 1));
+        MyApplication.points2 = x;
 
         buttonGerade.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,6 +37,9 @@ public class ActivityBot extends AppCompatActivity {
                 openActivityBotSetzen();
             }
         });
+
+
+
 
 
     }

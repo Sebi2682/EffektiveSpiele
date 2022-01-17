@@ -8,17 +8,35 @@
 
     <Button
         android:id="@+id/buttonGerade"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Gerade"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="275dp" />
+        android:layout_width="130dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="256dp"
+        android:text="@string/buttonGerade"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/ButtonUngerade"
+        android:layout_width="130dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="296dp"
+        android:text="@string/buttonUngerade"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textSpieler"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ungerade"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="387dp" />
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:text="Spieler:"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"  />
 </androidx.constraintlayout.widget.ConstraintLayout>
