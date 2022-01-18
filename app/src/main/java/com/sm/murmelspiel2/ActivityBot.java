@@ -24,8 +24,8 @@ public class ActivityBot extends AppCompatActivity {
 
         buttonGerade = findViewById(R.id.buttonGerade);
         buttonUngerade = findViewById(R.id.buttonUngerade);
-        int x = Min + (int) (Math.random() * ((Max - Min) + 1));
-        MyApplication.points2 = x;
+
+        randomNumber();
 
         buttonGerade.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,6 +42,11 @@ public class ActivityBot extends AppCompatActivity {
                 openActivityBotSetzen();
             }
         });
+    }
+
+    private void randomNumber() {
+        int x = Min + (int) (Math.random() * ((Max - Min) + 1));
+        MyApplication.points2 = x;
     }
 
     private void openActivityBotSetzen() {
