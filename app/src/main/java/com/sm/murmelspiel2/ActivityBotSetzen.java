@@ -23,5 +23,7 @@ public class ActivityBotSetzen extends AppCompatActivity {
         textAnzahl.setText(Integer.toString(MyApplication.anzahl1));
 
 
+
+
     }
 }
