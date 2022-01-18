@@ -7,4 +7,5 @@ public class MyApplication extends Application{
     static int anzahl2=10;
     static int points1=0;
     static int points2=0;
+
 }
