@@ -3,6 +3,7 @@ package com.sm.murmelspiel2;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -30,10 +31,12 @@ public class ActivitySpieler2 extends AppCompatActivity{
         textAnzahl.setText(Integer.toString(MyApplication.anzahl2));
         buttonKleiner2 = findViewById(R.id.buttonKleiner2);
         buttonGroesser2 = findViewById(R.id.buttonGroesser2);
+        final MediaPlayer mediaPlayer = MediaPlayer.create(this,R.raw.click);
 
         buttonKleiner2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mediaPlayer.start();
                 kleiner();
                 murmelkleiner();
             }
@@ -42,6 +45,7 @@ public class ActivitySpieler2 extends AppCompatActivity{
         buttonGroesser2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mediaPlayer.start();
                 groesser();
                 murmelGroesser();
             }
