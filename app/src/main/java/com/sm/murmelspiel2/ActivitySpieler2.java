@@ -74,22 +74,22 @@ public class ActivitySpieler2 extends AppCompatActivity{
 
     private void murmelkleiner() {
 
-        if(MyApplication.anzahl1 <10) {
-            MyApplication.points1--;
-            MyApplication.anzahl1++;
-            tvPoints.setText(Integer.toString(MyApplication.points1));
-            textAnzahl.setText(Integer.toString(MyApplication.anzahl1));
+        if(MyApplication.points2 >0) {
+            MyApplication.points2--;
+            MyApplication.anzahl2++;
+            tvPoints.setText(Integer.toString(MyApplication.points2));
+            textAnzahl.setText(Integer.toString(MyApplication.anzahl2));
 
         }
     }
 
     private void murmelGroesser(){
-        if(MyApplication.anzahl1 >0)
+        if(MyApplication.anzahl2 >0)
         {
-            MyApplication.points1++;
-            MyApplication.anzahl1--;
-            tvPoints.setText(Integer.toString(MyApplication.points1));
-            textAnzahl.setText(Integer.toString(MyApplication.anzahl1));
+            MyApplication.points2++;
+            MyApplication.anzahl2--;
+            tvPoints.setText(Integer.toString(MyApplication.points2));
+            textAnzahl.setText(Integer.toString(MyApplication.anzahl2));
 
         }
     }

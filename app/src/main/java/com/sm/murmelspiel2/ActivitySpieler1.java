@@ -75,7 +75,7 @@ public class ActivitySpieler1 extends AppCompatActivity{
 
     private void murmelkleiner() {
 
-        if(MyApplication.anzahl1 <10) {
+        if(MyApplication.points1 >0) {
                 MyApplication.points1--;
                 MyApplication.anzahl1++;
             tvPoints.setText(Integer.toString(MyApplication.points1));
