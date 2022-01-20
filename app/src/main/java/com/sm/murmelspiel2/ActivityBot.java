@@ -113,8 +113,8 @@ public class ActivityBot extends AppCompatActivity {
 
     public void openActivityBotEnde(){
 
-        Intent intent = new Intent( this, ActivityBotEnde.class);
-        startActivity(intent);
+        Intent intent2 = new Intent( this, ActivityBotEnde.class);
+        startActivity(intent2);
     }
 
 }
