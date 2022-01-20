@@ -12,11 +12,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.Light.NoActionBar">
         <activity
+            android:name=".ActivityBotEnde"
+            android:exported="false" />
+        <activity
             android:name=".ActivityBotSetzen"
             android:exported="false" />
         <activity
             android:name=".ActivityBot"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".ActivityEnde"
             android:exported="true" />

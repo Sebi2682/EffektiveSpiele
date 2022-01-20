@@ -31,7 +31,7 @@ public class ActivityBot extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 GewinnerGerade();
-                openActivityBotSetzen();
+                openNextActivity();
             }
         });
 
@@ -39,7 +39,7 @@ public class ActivityBot extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 GewinnerUngerade();
-                openActivityBotSetzen();
+                openNextActivity();
             }
         });
     }
@@ -49,16 +49,19 @@ public class ActivityBot extends AppCompatActivity {
         MyApplication.points2 = x;
     }
 
-    private void openActivityBotSetzen() {
-        Intent intent = new Intent(this, ActivityBotSetzen.class);
-        startActivity(intent);
-    }
-
     public void GewinnerGerade() {
         if ((MyApplication.points2 % 2) == 0) {
             Spieler1gewinnt();
         } else {
             BotGewinnt();
+        }
+    }
+
+    public void GewinnerUngerade() {
+        if ((MyApplication.points2 % 2) == 0) {
+            BotGewinnt();
+        } else {
+            Spieler1gewinnt();
         }
     }
 
@@ -77,7 +80,6 @@ public class ActivityBot extends AppCompatActivity {
         }
     }
 
-
     private void Spieler1gewinnt() {
         buttonGerade.setVisibility(View.GONE);
         buttonUngerade.setVisibility(View.GONE);
@@ -93,10 +95,24 @@ public class ActivityBot extends AppCompatActivity {
         }
     }
 
-    public void GewinnerUngerade() {
-        if ((MyApplication.points2 % 2) == 0) {
-
+    public void openNextActivity() {
+        if (MyApplication.anzahl2 > 0 && MyApplication.anzahl1 > 0) {
+            openActivityBotSetzen();
         } else {
+            openActivityBotEnde();
         }
     }
+
+    public void openActivityBotSetzen(){
+
+        Intent intent = new Intent(this, ActivityBotSetzen.class);
+        startActivity(intent);
+    }
+
+    public void openActivityBotEnde(){
+
+        Intent intent = new Intent( this, ActivityEnde.class);
+        startActivity(intent);
+    }
+
 }
