@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+import java.lang.Math;
 
 import java.util.concurrent.TimeUnit;
 
@@ -14,8 +15,8 @@ public class ActivityBot extends AppCompatActivity {
 
     private Button buttonGerade;
     private Button buttonUngerade;
-    private int Min = 1;
-    private int Max = MyApplication.anzahl2;
+    private int min = 1;
+    private int max = MyApplication.anzahl2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,9 +44,10 @@ public class ActivityBot extends AppCompatActivity {
             }
         });
     }
+    public void onBackPressed(){}
 
     private void randomNumber() {
-        int x = Min + (int) (Math.random() * ((Max - Min) + 1));
+        int x = (int)(Math.random() * ((max - min) + 1)) + min;
         MyApplication.points2 = x;
     }
 
@@ -111,7 +113,7 @@ public class ActivityBot extends AppCompatActivity {
 
     public void openActivityBotEnde(){
 
-        Intent intent = new Intent( this, ActivityEnde.class);
+        Intent intent = new Intent( this, ActivityBotEnde.class);
         startActivity(intent);
     }
 

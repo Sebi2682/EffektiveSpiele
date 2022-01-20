@@ -6,4 +6,61 @@
     android:layout_height="match_parent"
     tools:context=".ActivityBotEnde">
 
+    <TextView
+        android:id="@+id/textGewonnen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Du hast gewonnen!"
+        android:layout_marginTop="100dp"
+        android:textSize="48sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textVerloren"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" du hast verloren"
+        android:layout_marginTop="100dp"
+        android:textSize="48sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/animation" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/winner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        app:lottie_fileName="67230-trophy-winner.json"
+        app:lottie_loop="true"
+        tools:layout_editor_absoluteX="-137dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/sadFace"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        app:lottie_fileName="sadFace.json"
+        app:lottie_loop="true"
+        tools:layout_editor_absoluteX="-137dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+
+    <Button
+        android:id="@+id/buttonOkEnde"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="580dp"
+        android:layout_marginBottom="30dp"
+        android:text="@string/ok"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

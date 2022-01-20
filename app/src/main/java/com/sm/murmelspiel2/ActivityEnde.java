@@ -22,7 +22,7 @@ public class ActivityEnde extends AppCompatActivity {
         textSpieler1Gewinnt = findViewById(R.id.textSpieler1Gewinnt);
         textSpieler2Gewinnt = findViewById(R.id.textSpieler2Gewinnt);
 
-        WerGewinnt();
+        werGewinnt();
 
         buttonOK.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,7 +34,7 @@ public class ActivityEnde extends AppCompatActivity {
     }
     public void onBackPressed(){ }
 
-    public void WerGewinnt() {
+    public void werGewinnt() {
         if(MyApplication.anzahl1 <= 0) {
             textSpieler2Gewinnt.setVisibility(View.VISIBLE);
         }else{
