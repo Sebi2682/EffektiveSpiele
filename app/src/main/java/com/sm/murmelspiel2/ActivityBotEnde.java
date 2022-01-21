@@ -44,19 +44,19 @@ public class ActivityBotEnde extends AppCompatActivity {
         startActivity(intent);
 
     }
-    public void werGewinnt(){
-        if(MyApplication.anzahl1 <= 0) {
-            textVerloren.setVisibility(View.VISIBLE);
-            sadFace.setVisibility(View.VISIBLE);
-            sadFace.playAnimation();
+   public void werGewinnt(){
+       if(MyApplication.anzahl1 <= 0) {
+          textVerloren.setVisibility(View.VISIBLE);
+          sadFace.setVisibility(View.VISIBLE);
+          sadFace.playAnimation();
+       }else{
+           textGewonnen.setVisibility(View.VISIBLE);
+           winner.setVisibility(View.VISIBLE);
+           winner.playAnimation();
 
-        }else{
-            textGewonnen.setVisibility(View.VISIBLE);
-            winner.setVisibility(View.VISIBLE);
-            winner.playAnimation();
-        }
-        MyApplication.anzahl1 = 10;
-        MyApplication.anzahl2 = 10;
+       }
+       MyApplication.anzahl1 = 10;
+       MyApplication.anzahl2 = 10;
 
     }
 }

@@ -26,7 +26,6 @@ public class ActivityBotSetzen extends AppCompatActivity {
     private int min = 1;
     private int max = 2;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,60 +65,6 @@ public class ActivityBotSetzen extends AppCompatActivity {
             }
         });
     }
-    public void onBackPressed(){}
-
-    public void geradeUngerade(){
-        int x = (int)(Math.random() * ((max - min) + 1)) + min;
-        if(x == 1){
-            Spieler1gewinnt();
-        } else {
-            BotGewinnt();
-        }
-
-    }
-
-    private void BotGewinnt() {
-        MyApplication.anzahl2 = MyApplication.anzahl2 + MyApplication.points2 * 2;
-        MyApplication.anzahl1 = MyApplication.anzahl1 - MyApplication.points2;
-        MyApplication.points2 = 0;
-
-        Toast.makeText(ActivityBotSetzen.this, " Du hast verloren", Toast.LENGTH_LONG).show();
-        try {
-            TimeUnit.SECONDS.sleep(1);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void Spieler1gewinnt() {
-        MyApplication.anzahl1 = MyApplication.anzahl1 + MyApplication.points2;
-        MyApplication.points2 = 0;
-
-        Toast.makeText(ActivityBotSetzen.this, "Du hast gewonnen!", Toast.LENGTH_LONG).show();
-        try {
-            TimeUnit.SECONDS.sleep(1);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void openNextActivity() {
-        if (MyApplication.anzahl2 > 0 && MyApplication.anzahl1 > 0) {
-            openActivityBot();
-        } else {
-            openActivityBotEnde();
-        }
-    }
-
-    public void openActivityBot(){
-        Intent intent = new Intent(this, ActivityBot.class);
-        startActivity(intent);
-    }
-
-    public void openActivityBotEnde(){
-        Intent intent = new Intent( this, ActivityBotEnde.class);
-        startActivity(intent);
-    }
 
     public void kleiner(){
         Animation a = AnimationUtils.loadAnimation(this,R.anim.murmel_animation);
@@ -151,4 +96,60 @@ public class ActivityBotSetzen extends AppCompatActivity {
 
         }
     }
+
+    public void geradeUngerade(){
+        int x = (int)(Math.random() * ((max - min) + 1)) + min;
+        if(x == 1){
+            Spieler1gewinnt();
+        } else {
+            BotGewinnt();
+        }
+
+    }
+
+    private void BotGewinnt() {
+        MyApplication.anzahl2 = MyApplication.anzahl2 + MyApplication.points1;
+        MyApplication.points1 = 0;
+
+        Toast.makeText(ActivityBotSetzen.this, " Du hast verloren", Toast.LENGTH_LONG).show();
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void Spieler1gewinnt() {
+        MyApplication.anzahl1 = MyApplication.anzahl1 + MyApplication.points1 *2;
+        MyApplication.anzahl2 = MyApplication.anzahl2 - MyApplication.points1;
+        MyApplication.points1 = 0;
+
+        Toast.makeText(ActivityBotSetzen.this, "Du hast gewonnen!", Toast.LENGTH_LONG).show();
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void openNextActivity() {
+        if (MyApplication.anzahl2 > 0 && MyApplication.anzahl1 > 0) {
+            openActivityBot();
+        } else {
+            openActivityBotEnde();
+        }
+    }
+
+    public void openActivityBot(){
+        Intent intent = new Intent(this, ActivityBot.class);
+        startActivity(intent);
+    }
+
+    public void openActivityBotEnde(){
+        Intent intent1 = new Intent( this, ActivityBotEnde.class);
+        startActivity(intent1);
+    }
+
+    public void onBackPressed(){}
+
 }

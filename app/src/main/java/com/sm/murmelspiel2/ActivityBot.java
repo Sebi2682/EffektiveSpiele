@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.Toast;
 import java.lang.Math;
 
+import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
 public class ActivityBot extends AppCompatActivity {
@@ -17,14 +18,15 @@ public class ActivityBot extends AppCompatActivity {
     private Button buttonUngerade;
     private int min = 1;
     private int max = MyApplication.anzahl2;
+    private int x = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bot);
 
-        buttonGerade = findViewById(R.id.buttonGerade);
-        buttonUngerade = findViewById(R.id.buttonUngerade);
+        buttonGerade = findViewById(R.id.buttonGeradeBot);
+        buttonUngerade = findViewById(R.id.buttonUngeradeBot);
 
         randomNumber();
 
@@ -47,12 +49,12 @@ public class ActivityBot extends AppCompatActivity {
     public void onBackPressed(){}
 
     private void randomNumber() {
-        int x = (int)(Math.random() * ((max - min) + 1)) + min;
-        MyApplication.points2 = x;
+        x = (int)(Math.random() * ((max - min) + 1)) + min;
+
     }
 
     public void GewinnerGerade() {
-        if ((MyApplication.points2 % 2) == 0) {
+        if ((x % 2) == 0) {
             Spieler1gewinnt();
         } else {
             BotGewinnt();
@@ -60,21 +62,27 @@ public class ActivityBot extends AppCompatActivity {
     }
 
     public void GewinnerUngerade() {
-        if ((MyApplication.points2 % 2) == 0) {
+        if ((x % 2) == 0) {
             BotGewinnt();
         } else {
             Spieler1gewinnt();
         }
     }
 
+
     private void BotGewinnt() {
         buttonGerade.setVisibility(View.GONE);
         buttonUngerade.setVisibility(View.GONE);
-        MyApplication.anzahl2 = MyApplication.anzahl2 + MyApplication.points2 * 2;
-        MyApplication.anzahl1 = MyApplication.anzahl1 - MyApplication.points2;
-        MyApplication.points2 = 0;
+        MyApplication.anzahl2 = MyApplication.anzahl2 + x;
+        MyApplication.anzahl1 = MyApplication.anzahl1 - x;
 
-        Toast.makeText(ActivityBot.this, " Du hast verloren", Toast.LENGTH_LONG).show();
+        Toast.makeText(ActivityBot.this,
+                " Du hast verloren. Der Bot hat "
+
+                +x+
+
+                " Murmel(n) gesetzt",
+                Toast.LENGTH_LONG).show();
         try {
             TimeUnit.SECONDS.sleep(1);
         } catch (InterruptedException e) {
@@ -86,10 +94,16 @@ public class ActivityBot extends AppCompatActivity {
         buttonGerade.setVisibility(View.GONE);
         buttonUngerade.setVisibility(View.GONE);
 
-        MyApplication.anzahl1 = MyApplication.anzahl1 + MyApplication.points2;
-        MyApplication.points2 = 0;
+        MyApplication.anzahl1 = MyApplication.anzahl1 + x;
+        MyApplication.anzahl2 = MyApplication.anzahl2 -x;
 
-        Toast.makeText(ActivityBot.this, "Du hast gewonnen!", Toast.LENGTH_LONG).show();
+        Toast.makeText(ActivityBot.this,
+                "Du hast gewonnen! Der Bot hat "
+
+                +x+
+
+                " Murmel(n) gesetzt",
+                Toast.LENGTH_LONG).show();
         try {
             TimeUnit.SECONDS.sleep(1);
         } catch (InterruptedException e) {

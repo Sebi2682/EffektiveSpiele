@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,8 +10,9 @@
         android:id="@+id/textGewonnen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Du hast gewonnen!"
         android:layout_marginTop="100dp"
+        android:layout_gravity="center_horizontal"
+        android:text="Du hast gewonnen!"
         android:textSize="48sp"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,34 +23,36 @@
         android:id="@+id/textVerloren"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=" du hast verloren"
+        android:layout_gravity="center_horizontal"
+        android:text="Du hast verloren"
         android:layout_marginTop="100dp"
         android:textSize="48sp"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/animation" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/winner"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="invisible"
-        app:lottie_fileName="67230-trophy-winner.json"
+        app:lottie_fileName="winner.json"
         app:lottie_loop="true"
         tools:layout_editor_absoluteX="-137dp"
         tools:layout_editor_absoluteY="0dp" />
+
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/sadFace"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
         android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
         app:lottie_fileName="sadFace.json"
         app:lottie_loop="true"
-        tools:layout_editor_absoluteX="-137dp"
         tools:layout_editor_absoluteY="0dp" />
-
 
     <Button
         android:id="@+id/buttonOkEnde"
@@ -63,4 +66,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

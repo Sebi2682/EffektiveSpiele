@@ -7,7 +7,7 @@
     tools:context=".ActivityBot">
 
     <Button
-        android:id="@+id/buttonGerade"
+        android:id="@+id/buttonGeradeBot"
         android:layout_width="130dp"
         android:layout_height="80dp"
         android:layout_marginTop="256dp"
@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/ButtonUngerade"
+        android:id="@+id/buttonUngeradeBot"
         android:layout_width="130dp"
         android:layout_height="80dp"
         android:layout_marginBottom="296dp"
