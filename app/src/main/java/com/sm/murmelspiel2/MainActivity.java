@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.VideoView;
 
 public class MainActivity extends AppCompatActivity {
@@ -16,6 +17,9 @@ public class MainActivity extends AppCompatActivity {
     private Button buttonSpielen;
     private Button buttonBot;
     private Button buttonLokal;
+    private Button ButtonOKname;
+    EditText inputName1 = findViewById(R.id.inputName1);
+    EditText inputName2 = findViewById(R.id.inputName2);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         buttonSpielen = findViewById(R.id.buttonSpielen);
         buttonBot = findViewById(R.id.buttonBot);
         buttonLokal = findViewById(R.id.buttonLokal);
+        ButtonOKname = findViewById(R.id.buttonOKname);
 
         buttonRegeln.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,4 +87,5 @@ public class MainActivity extends AppCompatActivity {
         Intent intent2 = new Intent(this, ActivityBot.class);
         startActivity(intent2);
     }
+
 }
