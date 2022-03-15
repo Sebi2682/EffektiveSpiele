@@ -6,18 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ActivityRaten2">
 
-    <TextView
-        android:id="@+id/textSpieler2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="4dp"
-        android:text="Spieler 1:"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Button
         android:id="@+id/buttonGerade"
         android:layout_width="130dp"

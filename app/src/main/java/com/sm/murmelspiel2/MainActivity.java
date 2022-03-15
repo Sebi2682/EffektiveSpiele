@@ -10,6 +10,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.VideoView;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,15 +19,15 @@ public class MainActivity extends AppCompatActivity {
     private Button buttonBot;
     private Button buttonLokal;
     private Button ButtonOKname;
-    EditText inputName1 = findViewById(R.id.inputName1);
-    EditText inputName2 = findViewById(R.id.inputName2);
+
+     EditText inputName1;
+     TextView inputName11;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
 
 
         setContentView(R.layout.activity_main);
@@ -36,6 +37,10 @@ public class MainActivity extends AppCompatActivity {
         buttonBot = findViewById(R.id.buttonBot);
         buttonLokal = findViewById(R.id.buttonLokal);
         ButtonOKname = findViewById(R.id.buttonOKname);
+
+
+        inputName1 = (EditText) findViewById(R.id.inputName1);
+        inputName11 = (TextView) findViewById(R.id.inputName11);
 
         buttonRegeln.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,14 +62,28 @@ public class MainActivity extends AppCompatActivity {
         });
         buttonLokal.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
-                openActivitySpielen();
+            public void onClick(View v){ NamenSetzen();
+
             }
                                        }
         );
 
+        ButtonOKname.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateText();
+                openActivitySpielen();
+            }
+        });
+
+
+
     }
     public void onBackPressed(){ }
+
+    public void updateText() {
+        inputName11.setText(inputName1.getText());
+    }
 
     public void welcherModus(){
         buttonSpielen.setVisibility(View.INVISIBLE);
@@ -86,6 +105,13 @@ public class MainActivity extends AppCompatActivity {
     public void openActivityBot()  {
         Intent intent2 = new Intent(this, ActivityBot.class);
         startActivity(intent2);
+    }
+
+    public void NamenSetzen() {
+        ButtonOKname.setVisibility(View.VISIBLE);
+        buttonSpielen.setVisibility(View.INVISIBLE);
+        buttonRegeln.setVisibility(View.INVISIBLE);
+        inputName1.setVisibility(View.VISIBLE);
     }
 
 }
