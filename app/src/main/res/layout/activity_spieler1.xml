@@ -87,12 +87,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/inputName11"
+        android:id="@+id/txtView1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:text="Spieler 1"
-        tools:layout_editor_absoluteX="20dp"
-        tools:layout_editor_absoluteY="29dp" />
+        android:textSize="23dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.029" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

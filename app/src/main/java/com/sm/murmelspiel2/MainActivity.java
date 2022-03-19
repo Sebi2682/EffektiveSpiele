@@ -2,7 +2,9 @@ package com.sm.murmelspiel2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -19,9 +21,10 @@ public class MainActivity extends AppCompatActivity {
     private Button buttonBot;
     private Button buttonLokal;
     private Button ButtonOKname;
+    SharedPreferences sp;
 
      EditText inputName1;
-     TextView inputName11;
+     EditText inputName2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +43,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         inputName1 = (EditText) findViewById(R.id.inputName1);
-        inputName11 = (TextView) findViewById(R.id.inputName11);
+        inputName2 = (EditText) findViewById(R.id.inputName2);
+
+        sp = getSharedPreferences("namenspeicher", Context.MODE_PRIVATE);
 
         buttonRegeln.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,8 +76,18 @@ public class MainActivity extends AppCompatActivity {
         ButtonOKname.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                updateText();
-                openActivitySpielen();
+
+                String name1 = inputName1.getText().toString();
+                String name2 = inputName2.getText().toString();
+
+                SharedPreferences.Editor editor = sp.edit();
+                editor.putString("keyname", name1);
+                editor.putString("keyname2", name2);
+                editor.commit();
+                Intent intent = new Intent(MainActivity.this, ActivitySpieler1.class);
+
+                startActivity(intent);
+
             }
         });
 
@@ -81,9 +96,6 @@ public class MainActivity extends AppCompatActivity {
     }
     public void onBackPressed(){ }
 
-    public void updateText() {
-        inputName11.setText(inputName1.getText());
-    }
 
     public void welcherModus(){
         buttonSpielen.setVisibility(View.INVISIBLE);
@@ -112,6 +124,9 @@ public class MainActivity extends AppCompatActivity {
         buttonSpielen.setVisibility(View.INVISIBLE);
         buttonRegeln.setVisibility(View.INVISIBLE);
         inputName1.setVisibility(View.VISIBLE);
+        inputName2.setVisibility(View.VISIBLE);
+        buttonLokal.setVisibility(View.INVISIBLE);
+        buttonBot.setVisibility(View.INVISIBLE);
     }
 
 }

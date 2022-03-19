@@ -2,7 +2,9 @@ package com.sm.murmelspiel2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
@@ -18,6 +20,7 @@ public class ActivitySpieler2 extends AppCompatActivity{
     private Button buttonOk;
     private Button buttonKleiner2;
     private Button buttonGroesser2;
+    private TextView txtView2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,12 @@ public class ActivitySpieler2 extends AppCompatActivity{
         buttonKleiner2 = findViewById(R.id.buttonKleiner2);
         buttonGroesser2 = findViewById(R.id.buttonGroesser2);
         final MediaPlayer mediaPlayer = MediaPlayer.create(this,R.raw.click);
+
+        txtView2 = findViewById(R.id.txtView2);
+        SharedPreferences sp = getApplicationContext().getSharedPreferences("namenspeicher", Context.MODE_PRIVATE);
+        String name2 = sp.getString("keyname2", "");
+
+        txtView2.setText(name2);
 
         buttonKleiner2.setOnClickListener(new View.OnClickListener() {
             @Override
