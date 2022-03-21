@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,11 +26,12 @@ public class ActivityBotSetzen extends AppCompatActivity {
     private Button buttonGroesser;
     private int min = 1;
     private int max = 2;
+    private ImageView imageMurmelSetzen3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_spieler1);
+        setContentView(R.layout.activity_bot_setzen);
 
         tvPoints = findViewById(R.id.tvPoints);
         textAnzahl = findViewById(R.id.textAnzahl);
@@ -37,13 +39,15 @@ public class ActivityBotSetzen extends AppCompatActivity {
         textAnzahl.setText(Integer.toString(MyApplication.anzahl1));
         buttonKleiner = findViewById(R.id.buttonKleiner);
         buttonGroesser = findViewById(R.id.buttonGroesser);
+        imageMurmelSetzen3 = findViewById(R.id.imageMurmelSetzen3);
+
         final MediaPlayer mediaPlayer = MediaPlayer.create(this,R.raw.click);
 
         buttonKleiner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mediaPlayer.start();
-                kleiner();
+                animation();
                 murmelkleiner();
             }
         });
@@ -52,7 +56,7 @@ public class ActivityBotSetzen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mediaPlayer.start();
-                groesser();
+                animation();
                 murmelGroesser();
             }
         });
@@ -66,15 +70,12 @@ public class ActivityBotSetzen extends AppCompatActivity {
         });
     }
 
-    public void kleiner(){
+    public void animation(){
         Animation a = AnimationUtils.loadAnimation(this,R.anim.murmel_animation);
-        buttonKleiner.startAnimation(a);
+        imageMurmelSetzen3.startAnimation(a);
     }
 
-    public void groesser(){
-        Animation a = AnimationUtils.loadAnimation(this,R.anim.murmel_animation);
-        buttonGroesser.startAnimation(a);
-    }
+
 
     private void murmelkleiner() {
 

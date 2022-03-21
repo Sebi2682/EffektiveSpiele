@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class ActivitySpieler2 extends AppCompatActivity{
@@ -21,6 +22,7 @@ public class ActivitySpieler2 extends AppCompatActivity{
     private Button buttonKleiner2;
     private Button buttonGroesser2;
     private TextView txtView2;
+    private ImageView imageMurmelSetzen2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,8 @@ public class ActivitySpieler2 extends AppCompatActivity{
         textAnzahl.setText(Integer.toString(MyApplication.anzahl2));
         buttonKleiner2 = findViewById(R.id.buttonKleiner2);
         buttonGroesser2 = findViewById(R.id.buttonGroesser2);
+        imageMurmelSetzen2 = findViewById(R.id.imageMurmelSetzen2);
+
         final MediaPlayer mediaPlayer = MediaPlayer.create(this,R.raw.click);
 
         txtView2 = findViewById(R.id.txtView2);
@@ -46,7 +50,7 @@ public class ActivitySpieler2 extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 mediaPlayer.start();
-                kleiner();
+                animation2();
                 murmelkleiner();
             }
         });
@@ -55,7 +59,7 @@ public class ActivitySpieler2 extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 mediaPlayer.start();
-                groesser();
+                animation2();
                 murmelGroesser();
             }
         });
@@ -71,14 +75,9 @@ public class ActivitySpieler2 extends AppCompatActivity{
 
     public void onBackPressed(){ }
 
-    public void kleiner(){
+    public void animation2(){
         Animation a = AnimationUtils.loadAnimation(this,R.anim.murmel_animation);
-        buttonKleiner2.startAnimation(a);
-    }
-
-    public void groesser(){
-        Animation a = AnimationUtils.loadAnimation(this,R.anim.murmel_animation);
-        buttonGroesser2.startAnimation(a);
+        imageMurmelSetzen2.startAnimation(a);
     }
 
     private void murmelkleiner() {

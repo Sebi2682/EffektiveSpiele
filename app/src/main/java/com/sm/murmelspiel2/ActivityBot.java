@@ -18,6 +18,7 @@ public class ActivityBot extends AppCompatActivity {
     private Button buttonUngerade;
     private int min = 1;
     private int max = MyApplication.anzahl2;
+    private int spielerMax = MyApplication.anzahl1;
     private int x = 0;
 
     @Override
@@ -49,8 +50,11 @@ public class ActivityBot extends AppCompatActivity {
     public void onBackPressed(){}
 
     private void randomNumber() {
-        x = (int)(Math.random() * ((max - min) + 1)) + min;
-
+        if(max<=spielerMax) {
+            x = (int) (Math.random() * ((max - min) + 1)) + min;
+        }else{
+            x = (int) (Math.random() * ((spielerMax- min)+1)) +min;
+        }
     }
 
     public void GewinnerGerade() {
