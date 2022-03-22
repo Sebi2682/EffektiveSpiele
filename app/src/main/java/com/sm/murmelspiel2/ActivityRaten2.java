@@ -19,6 +19,8 @@ public class ActivityRaten2 extends AppCompatActivity {
     private Button buttonGerade;
     private Button buttonUngerade;
     private TextView txtView1;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,7 +83,11 @@ public class ActivityRaten2 extends AppCompatActivity {
         MyApplication.anzahl1= MyApplication.anzahl1+MyApplication.points2;
         MyApplication.points2 = 0;
 
-        Toast.makeText(ActivityRaten2.this, "Spieler 1 gewinnt!", Toast.LENGTH_LONG).show();
+        SharedPreferences sp = getApplicationContext().getSharedPreferences("namenspeicher", Context.MODE_PRIVATE);
+        String name1 = sp.getString("keyname", "");
+
+
+        Toast.makeText(ActivityRaten2.this, name1 + " gewinnt!", Toast.LENGTH_LONG ).show();
         TimeUnit.SECONDS.sleep(1);
 
     }
@@ -92,7 +98,10 @@ public class ActivityRaten2 extends AppCompatActivity {
         MyApplication.anzahl1= MyApplication.anzahl1-MyApplication.points2;
         MyApplication.points2 = 0;
 
-        Toast.makeText(ActivityRaten2.this, "Spieler 2 gewinnt!", Toast.LENGTH_LONG).show();
+        SharedPreferences sp = getApplicationContext().getSharedPreferences("namenspeicher", Context.MODE_PRIVATE);
+        String name2 = sp.getString("keyname2", "");
+
+        Toast.makeText(ActivityRaten2.this, name2 +" gewinnt!", Toast.LENGTH_LONG).show();
         TimeUnit.SECONDS.sleep(1);
     }
 

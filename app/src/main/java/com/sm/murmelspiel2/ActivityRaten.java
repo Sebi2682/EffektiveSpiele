@@ -83,7 +83,10 @@ public class ActivityRaten extends AppCompatActivity {
         MyApplication.anzahl2= MyApplication.anzahl2-MyApplication.points1;
         MyApplication.points1 = 0;
 
-        Toast.makeText(ActivityRaten.this,"Spieler 1 gewinnt!", Toast.LENGTH_LONG).show();
+        SharedPreferences sp = getApplicationContext().getSharedPreferences("namenspeicher", Context.MODE_PRIVATE);
+        String name1 = sp.getString("keyname", "");
+
+        Toast.makeText(ActivityRaten.this,name1 +" gewinnt!", Toast.LENGTH_LONG).show();
         TimeUnit.SECONDS.sleep(1);
 
 
@@ -94,7 +97,10 @@ public class ActivityRaten extends AppCompatActivity {
         MyApplication.anzahl2= MyApplication.anzahl2+MyApplication.points1;
         MyApplication.points1 = 0;
 
-        Toast.makeText(ActivityRaten.this, "Spieler 2 gewinnt!", Toast.LENGTH_LONG).show();
+        SharedPreferences sp = getApplicationContext().getSharedPreferences("namenspeicher", Context.MODE_PRIVATE);
+        String name2 = sp.getString("keyname2", "");
+
+        Toast.makeText(ActivityRaten.this, name2 + " gewinnt!", Toast.LENGTH_LONG).show();
         TimeUnit.SECONDS.sleep(1);
     }
 
