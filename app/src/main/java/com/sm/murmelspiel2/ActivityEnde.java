@@ -31,8 +31,8 @@ public class ActivityEnde extends AppCompatActivity {
         String name2 = sp.getString("keyname2", "");
 
 
-        textSpieler1Gewinnt.setText(name1 + " ist König/in der Murmeln!");
-        textSpieler2Gewinnt.setText(name2 + " ist König/in der Murmeln!");
+        textSpieler1Gewinnt.setText(name2 + " ist König/in der Murmeln!");
+        textSpieler2Gewinnt.setText(name1 + " ist König/in der Murmeln!");
 
         buttonOK.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -42,14 +42,6 @@ public class ActivitySpieler1 extends AppCompatActivity{
         txtView1.setText(name1);
 
 
-        //inputName1 = findViewById(R.id.inputName1);
-       // inputName2 = findViewById(R.id.inputName2);
-
-       // String name1 = getIntent().getStringExtra("keyname");
-        //String name2 = getIntent().getStringExtra("keyname2");
-
-       // inputName1.setText(name1);
-        //inputName2.setText(name2);
 
         buttonKleiner.setOnClickListener(new View.OnClickListener() {
             @Override

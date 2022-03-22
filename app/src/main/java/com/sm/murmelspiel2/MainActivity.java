@@ -42,10 +42,7 @@ public class MainActivity extends AppCompatActivity {
         ButtonOKname = findViewById(R.id.buttonOKname);
 
 
-        inputName1 = (EditText) findViewById(R.id.inputName1);
-        inputName2 = (EditText) findViewById(R.id.inputName2);
 
-        sp = getSharedPreferences("namenspeicher", Context.MODE_PRIVATE);
 
         buttonRegeln.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,6 +69,13 @@ public class MainActivity extends AppCompatActivity {
             }
                                        }
         );
+
+
+
+        inputName1 = (EditText) findViewById(R.id.inputName1);
+        inputName2 = (EditText) findViewById(R.id.inputName2);
+
+        sp = getSharedPreferences("namenspeicher", Context.MODE_PRIVATE);
 
         ButtonOKname.setOnClickListener(new View.OnClickListener() {
             @Override
