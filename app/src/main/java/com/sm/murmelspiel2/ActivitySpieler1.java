@@ -5,12 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.Image;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class ActivitySpieler1 extends AppCompatActivity{
@@ -21,6 +23,7 @@ public class ActivitySpieler1 extends AppCompatActivity{
     private Button buttonKleiner;
     private Button buttonGroesser;
     private TextView txtView1;
+    private ImageView imageMurmelSetzen1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +35,8 @@ public class ActivitySpieler1 extends AppCompatActivity{
         textAnzahl.setText(Integer.toString(MyApplication.anzahl1));
         buttonKleiner = findViewById(R.id.buttonKleiner);
         buttonGroesser = findViewById(R.id.buttonGroesser);
+        imageMurmelSetzen1 = findViewById(R.id.imageMurmelSetzen1);
+
         final MediaPlayer mediaPlayer = MediaPlayer.create(this,R.raw.click);
 
         txtView1 = findViewById(R.id.txtView1);
@@ -47,7 +52,7 @@ public class ActivitySpieler1 extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 mediaPlayer.start();
-                kleiner();
+                animation();
                 murmelkleiner();
             }
         });
@@ -56,7 +61,7 @@ public class ActivitySpieler1 extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 mediaPlayer.start();
-                groesser();
+                animation();
                 murmelGroesser();
             }
         });
@@ -74,14 +79,9 @@ public class ActivitySpieler1 extends AppCompatActivity{
     public void onBackPressed(){ }
 
 
-    public void kleiner(){
+    public void animation(){
         Animation a = AnimationUtils.loadAnimation(this,R.anim.murmel_animation);
-        buttonKleiner.startAnimation(a);
-    }
-
-    public void groesser(){
-        Animation a = AnimationUtils.loadAnimation(this,R.anim.murmel_animation);
-        buttonGroesser.startAnimation(a);
+        imageMurmelSetzen1.startAnimation(a);
     }
 
     private void murmelkleiner() {
